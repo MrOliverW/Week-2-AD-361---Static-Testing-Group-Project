@@ -92,8 +92,8 @@ If you work asynchronously, one group member should create the GitHub repository
 
 Assign each group member one of the following roles:
 ## Oliver W - Author
-## Dara S
-## Victoria S
+## Dara S - Reviewer
+## Victoria S - Scribe
 
 ### Reviewer
 

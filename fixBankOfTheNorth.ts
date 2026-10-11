@@ -5,8 +5,10 @@
 // - A PIN must be provided during every action.
 
 const USER = "Rose Thecat";
-const BALANCE = [15, 983];
+const BALANCE = [15983]; // Changed the array to a single number to represent the balance (OW)
 const USER_PIN = 1234;
+const transferAmount = withdrawl(amount, receiver); //adding to top of code, adding the receiver field (OW)
+
 
 // Deposits money into a user's account.
 export function deposit(pin: number, balance: number) {
@@ -30,17 +32,24 @@ export function withdrawl(pin: number, amount: number) {
   }
 }
 
-// Returns the account balance.
-export function balanceCheck() {
-  return BALANCE;
-  console.log(`Your balance is ${BALANCE}`);
+// Returns the account balance. -(OW) added pin paramater and updated function to return the balance.
+export function balanceCheck(pin: number, balance: number) {
+  if (pin === USER_PIN) {
+    console.log(`Your balance is ${BALANCE}`);
+    return BALANCE;
+  } else {
+    console.log("Incorrect PIN");
+  }
 }
 
 // Transfers money to another user's account and withdraws it from the account.
 export function transfer(pin: number, amount: number, reciver: string) {
-  const transferAmount = withdrawl(amount);
-  console.log(`Success! ${amount} was transferred to ${reciver}`);
-  return balanceCheck;
+  if (pin === USER_PIN) {
+    return transferAmount;
+    console.log(`Success! ${amount} was transferred to ${reciver}`);
+  } else {
+    console.log("Incorrect PIN");
+  }
 }
 
 // AI transparency: AI was used to clean up this code.
