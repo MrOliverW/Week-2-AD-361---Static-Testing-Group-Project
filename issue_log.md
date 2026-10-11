@@ -47,6 +47,23 @@
 - **Explanation:** In line 6, `BALANCE` is set up as an array (const BALANCE = [15, 983];). Having two separate numbers in an array for a bank account balance doesn't make sense for actual financial calculations and breaks simple addition/subtraction when trying to process deposits or withdrawals.
 - **Suggested Fix:** Change BALANCE from an array to a regular number type (e.g., 15983 or 15.98) so transactions can be more straightforward to the balance. 
 - **Current Status:** Open
+----
+## Root Cause
+- Defining const BALANCE = [15, 983] as an array instead of a number/int
+
+## Error
+-  Typo In the parameter name reciver instead of receiver -- console.log(`Success! ${amount} was transferred to ${reciver}`);
+
+## Defect or Bug
+- Function in line 35; ``` export function balanceCheck() {
+  return BALANCE;
+  console.log(`Your balance is ${BALANCE}`);
+}```; returns the balance array, but fails to print the message to the console because the function stops running before it reaches the console.log line it becomes unreachable code, should be swapped.
+
+## Failure
+- Line 14 uses the + operator on an array and a number (BALANCE + balance), where BALANCE is [15, 983] and balance is the deposit amount (example; 50).
+
+- When it runs and you call deposit(1234, 50), the program converts the array [15, 983] into the text string "15,983". Instead of adding $50 to the account balance, it glues the text together and sets the value to "15,98350".
 
 
 
