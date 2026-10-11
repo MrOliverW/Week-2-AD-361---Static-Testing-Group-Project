@@ -21,7 +21,7 @@
 - **Issue:** The balanceCheck function isn't taking any parameters to verify who is asking for the balance before printing it out.   -
 - **Explanation:** Right now, line 34 just declares export function balanceCheck() { ... } with no arguments. In our discussion, we realized we need to pass in a PIN (or user credentials) so we can run an if check before showing the balance. We also noticed that the console.log and return statements inside the function need to be flipped around so the log actually runs in the right order.
 - **Suggested Fix:** Add a pin: number parameter to line 34, throw in an if statement to check the PIN first, and clean up the order of the return and log statements inside the block.
-- **Current Status:** Open
+- **Current Status:** Fixed
 
 ## Issue 4: Uncalled Transfer Function, Missing Validation, and Function Call Bug
 
@@ -29,7 +29,7 @@
 - **Issue:** The transfer function is never called at the bottom of the script, lacks PIN authentication, and passes incomplete parameters to the withdrawal function.
 - **Explanation:** Line 41 sets up export function transfer(...), but it is never executed with test inputs at the bottom of the file. Additionally, it does not check pin === USER_PIN before processing transactions. Also, line 42 calls withdrawl(amount) with only one argument instead of passing both pin and amount, this causes the withdrawal to fail.
 - **Suggested Fix:** Add an if (pin === USER_PIN) block inside transfer() for authorization, update the internal call to withdraw(pin, amount), return,  balanceCheck(pin), and add a test call like transfer(1234, 50, "Rose") at the bottom of the file.
-- **Status:** Open
+- **Status:** Fixed
 
 ## Issue 5: Unused Variable Declaration
 
@@ -37,7 +37,7 @@
 - **Issue:** The variable USER is declared at the top of the script, but it is never used anywhere in the codebase.
 - **Explanation:** Line 7 defines const USER = "Rose Thecat"; Looking through all the functions (deposit, withdraw, balanceCheck, and transfer), none of them actually reference USER to perform any greeting, verification, or logging.
 - **Suggested Fix:** Either integrate USER into the function log outputs (for example, displaying "Welcome, Rose Thecat") or remove the unused variable completely to clean up dead code.
-- **Current Status:** Open
+- **Current Status:** Needs discussion
 
 ----
 ## Root Cause
