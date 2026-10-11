@@ -36,7 +36,7 @@
 - **Location:** Line 7; file: bankOfTheNorth.ts
 - **Issue:** The variable USER is declared at the top of the script, but it is never used anywhere in the codebase.
 - **Explanation:** Line 7 defines const USER = "Rose Thecat"; Looking through all the functions (deposit, withdraw, balanceCheck, and transfer), none of them actually reference USER to perform any greeting, verification, or logging.
-- **Suggested Fix:** Either integrate USER into the function log outputs (for example, displaying "Welcome, Rose Threat") or remove the unused variable completely to clean up dead code.
+- **Suggested Fix:** Either integrate USER into the function log outputs (for example, displaying "Welcome, Rose Thecat") or remove the unused variable completely to clean up dead code.
 - **Current Status:** Open
 
 ----
