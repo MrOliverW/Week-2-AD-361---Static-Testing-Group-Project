@@ -2,5 +2,5 @@ Create a file named `check.md`. Each group member must add their name and a brie
 
 
 Oliver W - Our scribe did a great job of describing the bugs in the code. The chronological order is also nice. 
-Dara S - 
+Dara S - Our team found several bugs including typos and logical errors.
 Victoria S -
