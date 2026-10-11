@@ -43,10 +43,10 @@ export function balanceCheck(pin: number, balance: number) {
 }
 
 // Transfers money to another user's account and withdraws it from the account.
-export function transfer(pin: number, amount: number, reciver: string) {
+export function transfer(pin: number, amount: number, receiver: string) {
   if (pin === USER_PIN) {
     return transferAmount;
-    console.log(`Success! ${amount} was transferred to ${reciver}`);
+    console.log(`Success! ${amount} was transferred to ${receiver}`);
   } else {
     console.log("Incorrect PIN");
   }
