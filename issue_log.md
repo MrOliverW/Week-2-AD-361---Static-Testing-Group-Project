@@ -1,10 +1,10 @@
-## Issue 1: Logic Inconsistency
+## Issue 1: Logic Error in Deposit Calculation
 
 - **Location:** Line 14; file: bankOfTheNorth.ts
 - **Issue:** The balance calculation may be incorrect because it attempts to add an array to a number.
 - **Explanation:** BALANCE is an array ([15, 983]), while balance is a number representing the deposit amount. The expression does not clearly update the user's account balance as required.
 - **Suggested Fix:** Amended by remove the + sign and replace with the .push() method instead, to append the new amount to the end of the array..
-- **Current Status:** Open
+- **Current Status:** Fixed
 
 
 ## Issue 2: Incorrect Withdrawal Logic
@@ -12,8 +12,8 @@
 - **Location:** Line 25; file: bankOfTheNorth.ts
 - **Issue:** The withdrawal function uses an incorrect balance calculation and does not properly deduct the withdrawal amount from the user's account.
 - **Explanation:** The expression balance = BALANCE + balance attempts to add an array to a number. Also, the function does not clearly subtract the requested withdrawal amount or check whether sufficient funds are available to prevent a negative balance.
-- **Suggested Fix:** Check if the withdrawal calculation should subtract the withdrawal amount instead of adding it. Verify that the PIN is checked before processing the transaction and review how the function should prevent the account balance from becoming negative.
-- **Current Status:** Under Investigation
+- **Suggested Fix:** Rename the function to withdraw, verify the user's PIN first, and run a loop through the BALANCE array to subtract money step-by-step without going below zero.
+- **Current Status:** Fixed
 
 ## Issue 3: Missing Parameter or Variable Mismatch in Balance Check Function
 
@@ -39,14 +39,6 @@
 - **Suggested Fix:** Either integrate USER into the function log outputs (for example, displaying "Welcome, Rose Threat") or remove the unused variable completely to clean up dead code.
 - **Current Status:** Open
 
-
-## Issue 6: Flawed Data Structure for Account Balance
-
-- **Location:** Line 6; file: bankOfTheNorth.ts
-- **Issue:** BALANCE is declared as an array of numbers ([15, 983]) instead of a single numerical value representing a currency amount.
-- **Explanation:** In line 6, BALANCE is set up as an array (const BALANCE = [15, 983];). Having two separate numbers in an array for a bank account balance doesn't make sense for actual financial calculations and breaks simple addition/subtraction when trying to process deposits or withdrawals.
-- **Suggested Fix:** Change BALANCE from an array to a regular number type (e.g., 15983 or 15.98) so transactions can be more straightforward to the balance. 
-- **Current Status:** Open
 ----
 ## Root Cause
 - Defining const BALANCE = [15, 983] as an array instead of a number/int
@@ -61,10 +53,5 @@
 }```; returns the balance array, but fails to print the message to the console because the function stops running before it reaches the console.log line it becomes unreachable code, should be swapped.
 
 ## Failure
-- Line 14 uses the + operator on an array and a number (BALANCE + balance), where BALANCE is [15, 983] and balance is the deposit amount (example; 50).
-
-- When it runs and you call deposit(1234, 50), the program converts the array [15, 983] into the text string "15,983". Instead of adding $50 to the account balance, it glues the text together and sets the value to "15,98350".
-
-
-
+- Line 41 to 44, when executing transfer(0000, 100, "Rose") using an invalid PIN (0000), the application proceeds with the transaction and prints "Success! 100 was transferred to Rose". At runtime, the system allows an unauthorized user to execute a financial transfer without verifying credentials.
 
