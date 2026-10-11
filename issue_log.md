@@ -12,7 +12,7 @@
 - **Location:** Line 25; file: bankOfTheNorth.ts
 - **Issue:** The withdrawal function uses an incorrect balance calculation and does not properly deduct the withdrawal amount from the user's account.
 - **Explanation:** The expression balance = BALANCE + balance attempts to add an array to a number. Also, the function does not clearly subtract the requested withdrawal amount or check whether sufficient funds are available to prevent a negative balance.
-- **Suggested Fix:** Investigate whether the withdrawal calculation should subtract the withdrawal amount instead of adding it. Verify that the PIN is checked before processing the transaction and review how the function should prevent the account balance from becoming negative.
+- **Suggested Fix:** Check if the withdrawal calculation should subtract the withdrawal amount instead of adding it. Verify that the PIN is checked before processing the transaction and review how the function should prevent the account balance from becoming negative.
 - **Current Status:** Under Investigation
 
 ## Issue 3: Missing Parameter or Variable Mismatch in Balance Check Function
