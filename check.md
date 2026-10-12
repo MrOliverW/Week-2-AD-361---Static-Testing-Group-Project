@@ -3,7 +3,8 @@ Create a file named `check.md`. Each group member must add their name and a brie
 
 Oliver W - Our scribe did a great job of describing the bugs in the code. The chronological order is also nice. Dara and I split up the code in the BankOfTheNorth.ts file that we'd be fixing, I think Dara did a great job going through and updating the code. It didn't take our team long to go from nothing to role delegation to rough drafts to a finished product.
 Dara S - Our team found several bugs including typos and logical errors.
-Victoria S -
+
+Victoria S - I had the role of the scribe, we worked in a zoom meeting first to check how to divide the work then went on and worked asynchronously, the first bug we found in the (Deposits money into a user's account.) function we went first one direction we tried using .push() to add new deposits to an array of transactions. But since the main goal of the function is to track the user's total money, we changed our approach. We updated the code so BALANCE works as a simple total number (BALANCE = BALANCE + amount), which made calculating the account total much easier.
 
 
 Compare the two results and add a short reflection to `check.md`:
