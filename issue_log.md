@@ -1,9 +1,9 @@
 ## Issue 1: Logic Error in Deposit Calculation
 
 - **Location:** Line 14; file: bankOfTheNorth.ts
-- **Issue:** The balance calculation may be incorrect because it attempts to add an array to a number.
-- **Explanation:** BALANCE is an array ([15, 983]), while balance is a number representing the deposit amount. The expression does not clearly update the user's account balance as required.
-- **Suggested Fix:** Amended by remove the + sign and replace with the .push() method instead, to append the new amount to the end of the array..
+- **Issue:** The deposit function was trying to add a deposit amount to an array instead of updating a number.
+- **Explanation:** BALANCE holds the total account balance as a number. The code needed to add the new deposit directly to this total when the correct PIN is entered.
+- **Suggested Fix:** Updated the code inside deposit() to BALANCE = BALANCE + amount when the PIN is correct, and logged the deposit into the transaction history.
 - **Current Status:** Fixed
 
 
